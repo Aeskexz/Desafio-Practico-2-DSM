@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Desafio2DSM">
         <activity
             android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>

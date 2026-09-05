@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F4F6F9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvTituloBienvenida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quiz de Idiomas"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"
+            android:textAlignment="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:id="@+id/tvSubtituloBienvenida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pon a prueba tus conocimientos lingüísticos"
+            android:textSize="14sp"
+            android:textColor="#64748B"
+            android:textAlignment="center"
+            android:layout_marginBottom="20dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E2E8F0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Instrucciones del Quiz"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#0F172A"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Cada quiz contiene 5 preguntas de opción múltiple.\n• Cada pregunta cuenta con al menos 3 opciones y una sola respuesta correcta.\n• Puedes navegar libremente entre las preguntas antes de enviar.\n• Selecciona la dificultad deseada y pulsa el botón del idioma para comenzar."
+                    android:textSize="13sp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="#334155" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E2E8F0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nivel de Dificultad"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#0F172A"
+                    android:layout_marginBottom="8dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgDificultad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbFacil"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Fácil"
+                        android:textColor="#1E293B"
+                        android:textSize="15sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbDificil"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Difícil"
+                        android:textColor="#1E293B"
+                        android:textSize="15sp" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecciona el tipo de quiz:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#0F172A"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnQuizEspanol"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Quiz de Español"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/btnQuizIngles"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Quiz de Inglés"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/btnQuizFrances"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Quiz de Francés"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/btnQuizAleman"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Quiz de Alemán"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:layout_marginBottom="24dp"
+            app:cornerRadius="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCerrarSesion"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Cerrar Sesión"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:textColor="#DC2626"
+            app:strokeColor="#DC2626"
+            app:cornerRadius="10dp"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+
+</ScrollView>
