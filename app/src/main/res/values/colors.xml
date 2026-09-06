@@ -2,4 +2,23 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Azul Oscuro - Paleta Principal -->
+    <color name="primary_dark_blue">#1E3A8A</color>
+    <color name="secondary_dark_blue">#0F172A</color>
+    <color name="tertiary_blue">#3B82F6</color>
+    <color name="light_blue_bg">#E0E7FF</color>
+
+    <!-- Colores de Texto -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+
+    <!-- Colores de UI -->
+    <color name="background_light">#F0F4FF</color>
+    <color name="surface_white">#FFFFFF</color>
+    <color name="border_color">#C7D2FE</color>
+
+    <!-- Colores de Estados -->
+    <color name="error_red">#DC2626</color>
+    <color name="success_green">#16A34A</color>
 </resources>

@@ -61,13 +61,9 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun iniciarQuiz(tipoQuiz: String) {
         val dificultad = if (rbDificil.isChecked) "Difícil" else "Fácil"
-        try {
-            val intent = Intent(this, Class.forName("$packageName.QuizActivity"))
-            intent.putExtra("TIPO_QUIZ", tipoQuiz)
-            intent.putExtra("DIFICULTAD", dificultad)
-            startActivity(intent)
-        } catch (e: Exception) {
-            Toast.makeText(this, "Quiz: $tipoQuiz - Dificultad: $dificultad", Toast.LENGTH_SHORT).show()
-        }
+        val intent = Intent(this, QuizActivity::class.java)
+        intent.putExtra("TIPO_QUIZ", tipoQuiz)
+        intent.putExtra("DIFICULTAD", dificultad)
+        startActivity(intent)
     }
 }

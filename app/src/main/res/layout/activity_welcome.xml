@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F4F6F9">
+    android:background="@color/background_light">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:text="Quiz de Idiomas"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="#1E293B"
+            android:textColor="@color/primary_dark_blue"
             android:textAlignment="center"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="6dp" />
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="Pon a prueba tus conocimientos lingüísticos"
             android:textSize="14sp"
-            android:textColor="#64748B"
+            android:textColor="@color/text_secondary"
             android:textAlignment="center"
             android:layout_marginBottom="20dp" />
 
@@ -40,9 +40,9 @@
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
-            app:cardBackgroundColor="#FFFFFF"
+            app:cardBackgroundColor="@color/surface_white"
             app:strokeWidth="1dp"
-            app:strokeColor="#E2E8F0">
+            app:strokeColor="@color/border_color">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,7 +56,7 @@
                     android:text="Instrucciones del Quiz"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/primary_dark_blue"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
@@ -65,7 +65,7 @@
                     android:text="• Cada quiz contiene 5 preguntas de opción múltiple.\n• Cada pregunta cuenta con al menos 3 opciones y una sola respuesta correcta.\n• Puedes navegar libremente entre las preguntas antes de enviar.\n• Selecciona la dificultad deseada y pulsa el botón del idioma para comenzar."
                     android:textSize="13sp"
                     android:lineSpacingExtra="4dp"
-                    android:textColor="#334155" />
+                    android:textColor="@color/text_secondary" />
 
             </LinearLayout>
 
@@ -77,9 +77,9 @@
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
-            app:cardBackgroundColor="#FFFFFF"
+            app:cardBackgroundColor="@color/surface_white"
             app:strokeWidth="1dp"
-            app:strokeColor="#E2E8F0">
+            app:strokeColor="@color/border_color">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                     android:text="Nivel de Dificultad"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/primary_dark_blue"
                     android:layout_marginBottom="8dp" />
 
                 <RadioGroup
@@ -109,7 +109,7 @@
                         android:layout_weight="1"
                         android:checked="true"
                         android:text="Fácil"
-                        android:textColor="#1E293B"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp" />
 
                     <RadioButton
@@ -118,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Difícil"
-                        android:textColor="#1E293B"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp" />
 
                 </RadioGroup>
@@ -133,10 +133,10 @@
             android:text="Selecciona el tipo de quiz:"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="#0F172A"
+            android:textColor="@color/primary_dark_blue"
             android:layout_marginBottom="12dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnQuizEspanol"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -147,7 +147,7 @@
             android:layout_marginBottom="10dp"
             app:cornerRadius="10dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnQuizIngles"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -158,7 +158,7 @@
             android:layout_marginBottom="10dp"
             app:cornerRadius="10dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnQuizFrances"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -169,7 +169,7 @@
             android:layout_marginBottom="10dp"
             app:cornerRadius="10dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnQuizAleman"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -188,8 +188,8 @@
             android:text="Cerrar Sesión"
             android:textSize="14sp"
             android:textAllCaps="false"
-            android:textColor="#DC2626"
-            app:strokeColor="#DC2626"
+            android:textColor="@color/error_red"
+            app:strokeColor="@color/error_red"
             app:cornerRadius="10dp"
             android:layout_marginBottom="16dp" />
 
