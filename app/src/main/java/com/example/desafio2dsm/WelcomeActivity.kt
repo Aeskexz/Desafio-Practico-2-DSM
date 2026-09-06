@@ -14,11 +14,12 @@ class WelcomeActivity : AppCompatActivity() {
     private lateinit var rgDificultad: RadioGroup
     private lateinit var rbFacil: RadioButton
     private lateinit var rbDificil: RadioButton
-    private lateinit var btnEspanol: Button
-    private lateinit var btnIngles: Button
-    private lateinit var btnFrances: Button
-    private lateinit var btnAleman: Button
+    private lateinit var btnIdiomas: com.google.android.material.button.MaterialButton
+    private lateinit var btnHistoria: com.google.android.material.button.MaterialButton
+    private lateinit var btnComenzar: Button
     private lateinit var btnCerrarSesion: Button
+
+    private var tipoQuizSeleccionado = "Idiomas"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,26 +28,25 @@ class WelcomeActivity : AppCompatActivity() {
         rgDificultad = findViewById(R.id.rgDificultad)
         rbFacil = findViewById(R.id.rbFacil)
         rbDificil = findViewById(R.id.rbDificil)
-        btnEspanol = findViewById(R.id.btnQuizEspanol)
-        btnIngles = findViewById(R.id.btnQuizIngles)
-        btnFrances = findViewById(R.id.btnQuizFrances)
-        btnAleman = findViewById(R.id.btnQuizAleman)
+        btnIdiomas = findViewById(R.id.btnIdiomas)
+        btnHistoria = findViewById(R.id.btnHistoria)
+        btnComenzar = findViewById(R.id.btnComenzar)
         btnCerrarSesion = findViewById(R.id.btnCerrarSesion)
 
-        btnEspanol.setOnClickListener {
-            iniciarQuiz("Español")
+        btnIdiomas.setOnClickListener {
+            tipoQuizSeleccionado = "Idiomas"
+            btnIdiomas.isSelected = true
+            btnHistoria.isSelected = false
         }
 
-        btnIngles.setOnClickListener {
-            iniciarQuiz("Inglés")
+        btnHistoria.setOnClickListener {
+            tipoQuizSeleccionado = "Historia (Siglo XX)"
+            btnHistoria.isSelected = true
+            btnIdiomas.isSelected = false
         }
 
-        btnFrances.setOnClickListener {
-            iniciarQuiz("Francés")
-        }
-
-        btnAleman.setOnClickListener {
-            iniciarQuiz("Alemán")
+        btnComenzar.setOnClickListener {
+            iniciarQuiz()
         }
 
         btnCerrarSesion.setOnClickListener {
@@ -59,11 +59,17 @@ class WelcomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun iniciarQuiz(tipoQuiz: String) {
-        val dificultad = if (rbDificil.isChecked) "Difícil" else "Fácil"
+    private fun iniciarQuiz() {
+        val dificultad = when (rgDificultad.checkedRadioButtonId) {
+            R.id.rbFacil -> "Fácil"
+            else -> "Difícil"
+        }
+
         val intent = Intent(this, QuizActivity::class.java)
-        intent.putExtra("TIPO_QUIZ", tipoQuiz)
+        intent.putExtra("TIPO_QUIZ", tipoQuizSeleccionado)
         intent.putExtra("DIFICULTAD", dificultad)
         startActivity(intent)
     }
 }
+
+

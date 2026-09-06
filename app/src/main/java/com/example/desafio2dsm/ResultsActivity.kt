@@ -16,15 +16,14 @@ import com.example.desafio2dsm.models.QuizResult
 class ResultsActivity : AppCompatActivity() {
 
     private lateinit var quizResult: QuizResult
-    private lateinit var questions: Array<Question>
+    private lateinit var questions: List<Question>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_results)
 
         quizResult = intent.getParcelableExtra("QUIZ_RESULT") ?: QuizResult("", "", mutableMapOf())
-        @Suppress("DEPRECATION")
-        questions = intent.getParcelableArrayExtra("QUESTIONS") as? Array<Question> ?: arrayOf()
+        questions = intent.getParcelableArrayListExtra("QUESTIONS") ?: emptyList()
 
         displayResults()
         setupButtons()
@@ -107,18 +106,17 @@ class ResultsActivity : AppCompatActivity() {
         }
         layout.addView(tvSelected)
 
-        if (!isCorrect) {
-            val tvCorrect = TextView(this).apply {
-                text = "Respuesta correcta: ${question.options[question.correctAnswerIndex]}"
-                textSize = 13f
-                setTextColor(resources.getColor(R.color.success_green, null))
-                layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                ).apply { bottomMargin = 8 }
-            }
-            layout.addView(tvCorrect)
+        // Siempre mostrar la respuesta correcta
+        val tvCorrect = TextView(this).apply {
+            text = "Respuesta correcta: ${question.options[question.correctAnswerIndex]}"
+            textSize = 13f
+            setTextColor(resources.getColor(R.color.success_green, null))
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply { bottomMargin = 8 }
         }
+        layout.addView(tvCorrect)
 
         val divider = View(this).apply {
             layoutParams = LinearLayout.LayoutParams(

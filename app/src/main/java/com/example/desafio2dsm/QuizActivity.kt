@@ -75,7 +75,8 @@ class QuizActivity : AppCompatActivity() {
             question.options.forEachIndexed { optionIndex, option ->
                 val radioButton = RadioButton(this@QuizActivity).apply {
                     text = option
-                    id = optionIndex
+                    id = View.generateViewId()
+                    tag = optionIndex  // Guardar el índice en el tag
                     layoutParams = RadioGroup.LayoutParams(
                         RadioGroup.LayoutParams.MATCH_PARENT,
                         RadioGroup.LayoutParams.WRAP_CONTENT
@@ -84,7 +85,13 @@ class QuizActivity : AppCompatActivity() {
                 addView(radioButton)
             }
             setOnCheckedChangeListener { _, checkedId ->
-                quizResult.selectedAnswers[question.id] = checkedId
+                if (checkedId != -1) {
+                    val selectedRadioButton = findViewById<RadioButton>(checkedId)
+                    val selectedIndex = selectedRadioButton?.tag as? Int ?: -1
+                    if (selectedIndex != -1) {
+                        quizResult.selectedAnswers[question.id] = selectedIndex
+                    }
+                }
             }
         }
         radioGroups.add(radioGroup)
@@ -107,7 +114,7 @@ class QuizActivity : AppCompatActivity() {
 
         val intent = Intent(this, ResultsActivity::class.java)
         intent.putExtra("QUIZ_RESULT", quizResult)
-        intent.putExtra("QUESTIONS", questions.toTypedArray())
+        intent.putParcelableArrayListExtra("QUESTIONS", ArrayList(questions))
         startActivity(intent)
     }
 

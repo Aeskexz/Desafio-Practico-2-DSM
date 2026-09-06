@@ -4,131 +4,109 @@ import com.example.desafio2dsm.models.Question
 
 object QuizQuestionsData {
 
-    fun getQuestions(language: String, difficulty: String): List<Question> {
-        return when (language) {
-            "Español" -> getSpanishLanguageQuestions(difficulty)
-            "Inglés" -> getEnglishLanguageQuestions(difficulty)
-            "Francés" -> getFrenchLanguageQuestions(difficulty)
-            "Alemán" -> getGermanLanguageQuestions(difficulty)
-            else -> emptyList()
+    fun getQuestions(quizType: String, difficulty: String): List<Question> {
+        return when (quizType) {
+            "Idiomas" -> getLanguageQuestions(difficulty)
+            "Historia (Siglo XX)" -> getHistoryQuestions(difficulty)
+            else -> getLanguageQuestions(difficulty)
         }
     }
 
-    // ESPAÑOL - Las frases están en ESPAÑOL, la respuesta correcta es siempre "Español"
-    private fun getSpanishLanguageQuestions(difficulty: String): List<Question> {
-        return if (difficulty == "Fácil") {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"Hola, ¿cómo estás?\"", listOf("Español", "Inglés", "Francés"), 0),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"Tengo hambre y sed\"", listOf("Portugués", "Español", "Italiano"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"Me encanta este día soleado\"", listOf("Catalán", "Español", "Gallego"), 1),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"Gracias por tu ayuda\"", listOf("Español", "Francés", "Rumano"), 0),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"Los gatos duermen en la casa\"", listOf("Inglés", "Español", "Alemán"), 1)
-            )
-        } else if (difficulty == "Medio") {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"Necesitamos encontrar una solución rápidamente\"", listOf("Español", "Portugués", "Francés"), 0),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"La educación es fundamental para el desarrollo\"", listOf("Italiano", "Español", "Inglés"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"Aunque sea difícil, nunca debemos rendirnos\"", listOf("Español", "Francés", "Alemán"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"El mercado está lleno de productos frescos\"", listOf("Portugués", "Español", "Holandés"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"Hemos estado esperando este momento\"", listOf("Español", "Italiano", "Rumano"), 0)
-            )
-        } else {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"La perspectiva contemporánea enfatiza la importancia de la sostenibilidad\"", listOf("Español", "Francés", "Portugués"), 0),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"Mediante la introspección, podemos comprender nuestras contradicciones\"", listOf("Inglés", "Español", "Italiano"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"La complejidad del fenómeno requiere un análisis multidisciplinario\"", listOf("Español", "Holandés", "Alemán"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"Antaño, las civilizaciones mesoamericanas poseían conocimientos astronómicos\"", listOf("Catalán", "Español", "Gallego"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"La epistemología contempla las limitaciones del conocimiento humano\"", listOf("Español", "Francés", "Portugués"), 0)
-            )
+    private fun getLanguageQuestions(difficulty: String): List<Question> {
+        return when (difficulty) {
+            "Fácil" -> getEasyLanguageQuestions()
+            else -> getHardLanguageQuestions()
         }
     }
 
-    // INGLÉS - Las frases están en INGLÉS, la respuesta correcta es siempre "Inglés"
-    private fun getEnglishLanguageQuestions(difficulty: String): List<Question> {
-        return if (difficulty == "Fácil") {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"Hello, how are you?\"", listOf("Francés", "Inglés", "Español"), 1),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"I like apples and oranges\"", listOf("Alemán", "Inglés", "Holandés"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"The cat is on the table\"", listOf("Inglés", "Sueco", "Dinamarqués"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"Do you speak English?\"", listOf("Escocés", "Inglés", "Galés"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"Thank you very much\"", listOf("Noruego", "Inglés", "Finlandés"), 1)
-            )
-        } else if (difficulty == "Medio") {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"Understanding different cultures enriches our perspective\"", listOf("Inglés", "Alemán", "Francés"), 0),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"The development of technology has transformed society\"", listOf("Holandés", "Inglés", "Sueco"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"Unfortunately, we couldn't attend the conference\"", listOf("Inglés", "Italiano", "Portugués"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"Environmental protection requires collective responsibility\"", listOf("Alemán", "Inglés", "Polaco"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"She has been working here for five years\"", listOf("Francés", "Inglés", "Español"), 1)
-            )
-        } else {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"The exponential proliferation of digital platforms necessitates unprecedented regulatory frameworks\"", listOf("Inglés", "Francés", "Alemán"), 0),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"Phenomenologically, consciousness encompasses multifaceted dimensions of human experience\"", listOf("Holandés", "Inglés", "Sueco"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"Epistemological considerations underpin contemporary philosophical discourse\"", listOf("Inglés", "Italiano", "Portugués"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"The juxtaposition of disparate ideologies precipitates intellectual ferment\"", listOf("Alemán", "Inglés", "Polaco"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"Notwithstanding their heterogeneity, these paradigms coalesce around fundamental principles\"", listOf("Francés", "Inglés", "Español"), 1)
-            )
+    private fun getHistoryQuestions(difficulty: String): List<Question> {
+        return when (difficulty) {
+            "Fácil" -> getEasyHistoryQuestions()
+            else -> getHardHistoryQuestions()
         }
     }
 
-    // FRANCÉS - Las frases están en FRANCÉS, la respuesta correcta es siempre "Francés"
-    private fun getFrenchLanguageQuestions(difficulty: String): List<Question> {
-        return if (difficulty == "Fácil") {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"Bonjour, comment allez-vous?\"", listOf("Español", "Francés", "Italiano"), 1),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"J'aime beaucoup le café\"", listOf("Portugués", "Francés", "Rumano"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"Où est la gare?\"", listOf("Francés", "Inglés", "Alemán"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"Au revoir, à bientôt\"", listOf("Catalán", "Francés", "Provenzal"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"Le pain est très bon\"", listOf("Italiano", "Francés", "Holandés"), 1)
-            )
-        } else if (difficulty == "Medio") {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"La vie est une aventure extraordinaire\"", listOf("Francés", "Portugués", "Español"), 0),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"Nous devons protéger notre environnement\"", listOf("Inglés", "Francés", "Alemán"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"L'apprentissage des langues ouvre des portes\"", listOf("Francés", "Italiano", "Catalán"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"Malgré les difficultés, nous continuerons\"", listOf("Holandés", "Francés", "Sueco"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"Les enfants jouent dans le parc\"", listOf("Francés", "Portugués", "Español"), 0)
-            )
-        } else {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"L'épistémologie contemporaine s'interroge sur la légitimité du savoir scientifique\"", listOf("Francés", "Alemán", "Inglés"), 0),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"La déconstruction des paradigmes établis s'avère indispensable\"", listOf("Italiano", "Francés", "Holandés"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"La phénoménologie transcende la dichotomie sujet-objet\"", listOf("Francés", "Portugués", "Español"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"La prolifération des méthodologies complexifie le champ disciplinaire\"", listOf("Catalán", "Francés", "Provenzal"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"L'herméneutique constitue un enjeu majeur de la philosophie contemporaine\"", listOf("Francés", "Sueco", "Polaco"), 0)
-            )
-        }
+    // IDIOMAS - FÁCIL: Inglés, Italiano, Francés, Alemán, Portugués
+    private fun getEasyLanguageQuestions(): List<Question> {
+        return listOf(
+            // Inglés (germánico) vs Alemán, Neerlandés
+            Question(1, "¿En qué idioma está esta frase?\n\n\"Hello, how are you today?\"", listOf("Alemán", "Inglés", "Sueco"), 1),
+
+            // Francés (romance) vs Italiano, Portugués, Español
+            Question(2, "¿En qué idioma está esta frase?\n\n\"Bonjour, comment allez-vous?\"", listOf("Italiano", "Francés", "Portugués"), 1),
+
+            // Italiano (romance) vs Francés, Portugués
+            Question(3, "¿En qué idioma está esta frase?\n\n\"Buongiorno, come stai?\"", listOf("Portugués", "Italiano", "Francés"), 1),
+
+            // Alemán (germánico) vs Inglés, Holandés
+            Question(4, "¿En qué idioma está esta frase?\n\n\"Guten Tag, wie geht es Ihnen?\"", listOf("Inglés", "Alemán", "Holandés"), 1),
+
+            // Portugués (romance) vs Italiano, Francés
+            Question(5, "¿En qué idioma está esta frase?\n\n\"Olá, como você está?\"", listOf("Francés", "Portugués", "Italiano"), 1)
+        )
     }
 
-    // ALEMÁN - Las frases están en ALEMÁN, la respuesta correcta es siempre "Alemán"
-    private fun getGermanLanguageQuestions(difficulty: String): List<Question> {
-        return if (difficulty == "Fácil") {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"Guten Tag, wie geht es Ihnen?\"", listOf("Holandés", "Alemán", "Sueco"), 1),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"Ich mag Schokolade sehr gerne\"", listOf("Alemán", "Noruego", "Danés"), 0),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"Wo ist die Bibliothek?\"", listOf("Inglés", "Alemán", "Francés"), 1),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"Auf Wiedersehen, bis später\"", listOf("Sueco", "Alemán", "Polaco"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"Das Auto ist rot\"", listOf("Holandés", "Alemán", "Checo"), 1)
-            )
-        } else if (difficulty == "Medio") {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"Die Bildung ist der Schlüssel zum Erfolg\"", listOf("Alemán", "Holandés", "Inglés"), 0),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"Wir müssen die Umwelt schützen\"", listOf("Francés", "Alemán", "Español"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"Das Leben ist voller Überraschungen\"", listOf("Alemán", "Italiano", "Portugués"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"Trotz der Schwierigkeiten geben wir nicht auf\"", listOf("Sueco", "Alemán", "Noruego"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"Die Kinder spielen im Garten\"", listOf("Alemán", "Holandés", "Inglés"), 0)
-            )
-        } else {
-            listOf(
-                Question(1, "¿En qué idioma está esta frase?\n\n\"Die erkenntnistheoretische Problematik der Wissenschaftlichkeit bedarf einer grundlegenden Neubetrachtung\"", listOf("Alemán", "Inglés", "Holandés"), 0),
-                Question(2, "¿En qué idioma está esta frase?\n\n\"Die Dekonstruktion etablierter Paradigmen erweist sich als notwendig\"", listOf("Francés", "Alemán", "Sueco"), 1),
-                Question(3, "¿En qué idioma está esta frase?\n\n\"Phänomenologisch betrachtet transzendiert die Erfahrung die Subjekt-Objekt-Dichotomie\"", listOf("Alemán", "Portugués", "Español"), 0),
-                Question(4, "¿En qué idioma está esta frase?\n\n\"Die Proliferation empirischer Methodologien kompliziert das wissenschaftliche Feld\"", listOf("Polaco", "Alemán", "Checo"), 1),
-                Question(5, "¿En qué idioma está esta frase?\n\n\"Die Hermeneutik stellt ein fundamentales Anliegen zeitgenössischer Philosophie dar\"", listOf("Alemán", "Danés", "Sueco"), 0)
-            )
-        }
+    // MEDIO: Coreano, Ruso, Chino, Árabe, Rumano
+    // Agrupar: Ruso-Rumano (eslavos/balcánicos) | Chino-Coreano-Vietnamita (asiáticos) | Árabe-Hebreo (semíticos)
+    private fun getMediumQuestions(): List<Question> {
+        return listOf(
+            // Chino vs Coreano, Vietnamita
+            Question(1, "¿En qué idioma está esta frase?\n\n\"你好，你好吗？\"", listOf("Coreano", "Chino", "Vietnamita"), 1),
+
+            // Coreano vs Chino, Japonés
+            Question(2, "¿En qué idioma está esta frase?\n\n\"안녕하세요, 어떻게 지내세요?\"", listOf("Chino", "Coreano", "Tailandés"), 1),
+
+            // Ruso vs Rumano, Búlgaro
+            Question(3, "¿En qué idioma está esta frase?\n\n\"Здравствуйте, как дела?\"", listOf("Rumano", "Ruso", "Búlgaro"), 1),
+
+            // Árabe vs Hebreo, Persa
+            Question(4, "¿En qué idioma está esta frase?\n\n\"مرحبا، كيف حالك؟\"", listOf("Hebreo", "Árabe", "Persa"), 1),
+
+            // Rumano vs Ruso, Serbio
+            Question(5, "¿En qué idioma está esta frase?\n\n\"Bună ziua, cum te simți?\"", listOf("Ruso", "Rumano", "Serbio"), 1)
+        )
+    }
+
+    // IDIOMAS - DIFÍCIL: Tailandés, Kazajo, Japonés, Vietnamita, Turco
+    private fun getHardLanguageQuestions(): List<Question> {
+        return listOf(
+            // Tailandés vs Vietnamita, Lao
+            Question(1, "¿En qué idioma está esta frase?\n\n\"สวัสดี ยังไงบ้าง\"", listOf("Vietnamita", "Tailandés", "Lao"), 1),
+
+            // Vietnamita vs Tailandés, Camboyano
+            Question(2, "¿En qué idioma está esta frase?\n\n\"Xin chào, bạn khỏe không?\"", listOf("Tailandés", "Vietnamita", "Camboyano"), 1),
+
+            // Japonés vs Coreano, Chino
+            Question(3, "¿En qué idioma está esta frase?\n\n\"おはようございます\"", listOf("Coreano", "Japonés", "Chino"), 1),
+
+            // Kazajo vs Turco, Uzbeco
+            Question(4, "¿En qué idioma está esta frase?\n\n\"Сәлем, қалың қалай?\"", listOf("Turco", "Kazajo", "Uzbeco"), 1),
+
+            // Turco vs Kazajo, Tártaro
+            Question(5, "¿En qué idioma está esta frase?\n\n\"Merhaba, nasılsın?\"", listOf("Kazajo", "Turco", "Uzbeco"), 1)
+        )
+    }
+
+    // HISTORIA (SIGLO XX) - FÁCIL
+    private fun getEasyHistoryQuestions(): List<Question> {
+        return listOf(
+            Question(1, "¿En qué año comenzó la Primera Guerra Mundial?", listOf("1912", "1914", "1916"), 1),
+            Question(2, "¿Cuál fue la capital del Imperio Austro-Húngaro?", listOf("Berlín", "Viena", "Praga"), 1),
+            Question(3, "¿Quién fue el primer presidente de los Estados Unidos?", listOf("Thomas Jefferson", "George Washington", "Benjamin Franklin"), 1),
+            Question(4, "¿En qué año terminó la Segunda Guerra Mundial?", listOf("1943", "1944", "1945"), 2),
+            Question(5, "¿Cuál fue la capital del Imperio Alemán bajo el Kaiser?", listOf("Múnich", "Berlín", "Hamburgo"), 1)
+        )
+    }
+
+    // HISTORIA (SIGLO XX) - DIFÍCIL
+    private fun getHardHistoryQuestions(): List<Question> {
+        return listOf(
+            Question(1, "¿Cuál fue el Tratado que terminó la Primera Guerra Mundial?", listOf("Versalles", "París", "Berlín"), 0),
+            Question(2, "¿En qué año ocurrió la Revolución Rusa?", listOf("1917", "1919", "1915"), 0),
+            Question(3, "¿Cuál fue el nombre de la crisis de misiles que casi causa WWIII?", listOf("Crisis de Berlín", "Crisis de Cuba", "Crisis de Suez"), 1),
+            Question(4, "¿En qué año se fundó el Estado de Israel?", listOf("1945", "1948", "1950"), 1),
+            Question(5, "¿En qué año se construyó el Muro de Berlín?", listOf("1958", "1961", "1964"), 1)
+        )
     }
 }
-
 

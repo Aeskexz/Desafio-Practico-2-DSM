@@ -37,7 +37,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
             app:cardBackgroundColor="@color/surface_white"
@@ -53,19 +53,30 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Instrucciones del Quiz"
+                    android:text="Tipo de Quiz"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary_dark_blue"
-                    android:layout_marginBottom="8dp" />
+                    android:layout_marginBottom="12dp" />
 
-                <TextView
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnIdiomas"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="• Cada quiz contiene 5 preguntas de opción múltiple.\n• Cada pregunta cuenta con al menos 3 opciones y una sola respuesta correcta.\n• Puedes navegar libremente entre las preguntas antes de enviar.\n• Selecciona la dificultad deseada y pulsa el botón del idioma para comenzar."
-                    android:textSize="13sp"
-                    android:lineSpacingExtra="4dp"
-                    android:textColor="@color/text_secondary" />
+                    android:layout_height="48dp"
+                    android:text="Idiomas"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:layout_marginBottom="8dp"
+                    app:cornerRadius="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnHistoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Historia (Siglo XX)"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    app:cornerRadius="8dp" />
 
             </LinearLayout>
 
@@ -74,7 +85,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
             app:cardBackgroundColor="@color/surface_white"
@@ -100,23 +111,22 @@
                     android:id="@+id/rgDificultad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <RadioButton
                         android:id="@+id/rbFacil"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:checked="true"
                         android:text="Fácil"
                         android:textColor="@color/text_primary"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:layout_marginBottom="8dp" />
 
                     <RadioButton
                         android:id="@+id/rbDificil"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:checked="true"
                         android:text="Difícil"
                         android:textColor="@color/text_primary"
                         android:textSize="15sp" />
@@ -127,54 +137,12 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnComenzar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Selecciona el tipo de quiz:"
+            android:layout_height="56dp"
+            android:text="Comenzar"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary_dark_blue"
-            android:layout_marginBottom="12dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnQuizEspanol"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Quiz de Español"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:layout_marginBottom="10dp"
-            app:cornerRadius="10dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnQuizIngles"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Quiz de Inglés"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:layout_marginBottom="10dp"
-            app:cornerRadius="10dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnQuizFrances"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Quiz de Francés"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:layout_marginBottom="10dp"
-            app:cornerRadius="10dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnQuizAleman"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Quiz de Alemán"
-            android:textSize="15sp"
             android:textStyle="bold"
             android:textAllCaps="false"
             android:layout_marginBottom="24dp"

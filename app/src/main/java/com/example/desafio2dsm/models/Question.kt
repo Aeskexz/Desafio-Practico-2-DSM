@@ -12,14 +12,18 @@ data class Question(
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString() ?: "",
-        parcel.createStringArrayList() ?: emptyList(),
+        mutableListOf<String>().apply {
+            val size = parcel.readInt()
+            repeat(size) { add(parcel.readString() ?: "") }
+        },
         parcel.readInt()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
         parcel.writeString(text)
-        parcel.writeStringList(options)
+        parcel.writeInt(options.size)
+        options.forEach { parcel.writeString(it) }
         parcel.writeInt(correctAnswerIndex)
     }
 
