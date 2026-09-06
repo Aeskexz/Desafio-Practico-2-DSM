@@ -8,6 +8,8 @@ object QuizQuestionsData {
         return when (quizType) {
             "Idiomas" -> getLanguageQuestions(difficulty)
             "Historia (Siglo XX)" -> getHistoryQuestions(difficulty)
+            "Informática" -> getComputerQuestions(difficulty)
+            "Cultura general salvadoreña" -> getSalvadoranCultureQuestions(difficulty)
             else -> getLanguageQuestions(difficulty)
         }
     }
@@ -23,6 +25,20 @@ object QuizQuestionsData {
         return when (difficulty) {
             "Fácil" -> getEasyHistoryQuestions()
             else -> getHardHistoryQuestions()
+        }
+    }
+
+    private fun getComputerQuestions(difficulty: String): List<Question> {
+        return when (difficulty) {
+            "Fácil" -> getEasyComputerQuestions()
+            else -> getHardComputerQuestions()
+        }
+    }
+
+    private fun getSalvadoranCultureQuestions(difficulty: String): List<Question> {
+        return when (difficulty) {
+            "Fácil" -> getEasySalvadoranCultureQuestions()
+            else -> getHardSalvadoranCultureQuestions()
         }
     }
 
@@ -106,6 +122,46 @@ object QuizQuestionsData {
             Question(3, "¿Cuál fue el nombre de la crisis de misiles que casi causa WWIII?", listOf("Crisis de Berlín", "Crisis de Cuba", "Crisis de Suez"), 1),
             Question(4, "¿En qué año se fundó el Estado de Israel?", listOf("1945", "1948", "1950"), 1),
             Question(5, "¿En qué año se construyó el Muro de Berlín?", listOf("1958", "1961", "1964"), 1)
+        )
+    }
+
+    private fun getEasyComputerQuestions(): List<Question> {
+        return listOf(
+            Question(1, "¿Cuál de estos es un lenguaje de programación?", listOf("Python", "HTML", "CSS"), 0),
+            Question(2, "¿Qué lenguaje se ejecuta principalmente en la máquina virtual de Java?", listOf("Java", "SQL", "Bash"), 0),
+            Question(3, "¿Qué tipo de dato representa verdadero o falso?", listOf("Booleano", "Decimal", "Cadena"), 0),
+            Question(4, "¿Qué símbolo se usa habitualmente para iniciar un comentario de una línea en Kotlin?", listOf("//", "##", "<!--"), 0),
+            Question(5, "¿Qué estructura de datos almacena elementos en pares clave-valor?", listOf("Mapa", "Pila", "Cola"), 0)
+        )
+    }
+
+    private fun getHardComputerQuestions(): List<Question> {
+        return listOf(
+            Question(1, "¿Qué complejidad temporal tiene la búsqueda binaria en una colección ordenada?", listOf("O(n)", "O(log n)", "O(n²)"), 1),
+            Question(2, "¿Qué principio de POO permite que una subclase ofrezca una implementación específica de un método?", listOf("Herencia", "Polimorfismo", "Encapsulamiento"), 1),
+            Question(3, "¿Qué estructura sigue el principio LIFO?", listOf("Cola", "Árbol", "Pila"), 2),
+            Question(4, "¿Qué protocolo se usa normalmente para transferir páginas web de forma segura?", listOf("HTTP", "FTP", "HTTPS"), 2),
+            Question(5, "¿Qué palabra clave de Kotlin declara una referencia que no puede ser nula?", listOf("?", "!!", "lateinit"), 2)
+        )
+    }
+
+    private fun getEasySalvadoranCultureQuestions(): List<Question> {
+        return listOf(
+            Question(1, "¿Cuál es la capital de El Salvador?", listOf("San Salvador", "Santa Ana", "San Miguel"), 0),
+            Question(2, "¿En qué año se declaró la independencia de Centroamérica de España?", listOf("1810", "1821", "1838"), 1),
+            Question(3, "¿Cuál es el ave nacional de El Salvador?", listOf("Torogoz", "Quetzal", "Tucán"), 0),
+            Question(4, "¿Cuál es la moneda de curso legal adoptada en El Salvador desde 2001?", listOf("Dólar estadounidense", "Peso salvadoreño", "Colón costarricense"), 0),
+            Question(5, "¿Cómo se conoce tradicionalmente al volcán de Izalco?", listOf("El Faro del Pacífico", "La Montaña Azul", "El Guardián del Norte"), 0)
+        )
+    }
+
+    private fun getHardSalvadoranCultureQuestions(): List<Question> {
+        return listOf(
+            Question(1, "¿En qué año comenzó el conflicto armado interno de El Salvador?", listOf("1972", "1980", "1992"), 1),
+            Question(2, "¿En qué fecha se firmaron los Acuerdos de Paz de Chapultepec?", listOf("16 de enero de 1992", "15 de septiembre de 1980", "1 de junio de 1994"), 0),
+            Question(3, "¿En qué año se fundó el FMLN?", listOf("1975", "1980", "1985"), 1),
+            Question(4, "¿En qué año ocurrió la guerra de las Cien Horas entre El Salvador y Honduras?", listOf("1965", "1969", "1974"), 1),
+            Question(5, "¿En qué año fue asesinado el arzobispo Óscar Arnulfo Romero?", listOf("1977", "1980", "1983"), 1)
         )
     }
 }

@@ -78,6 +78,26 @@
                     android:textAllCaps="false"
                     app:cornerRadius="8dp" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnInformatica"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Informática"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="8dp"
+                    app:cornerRadius="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCulturaSalvadorena"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Cultura general salvadoreña"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="8dp"
+                    app:cornerRadius="8dp" />
+
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>

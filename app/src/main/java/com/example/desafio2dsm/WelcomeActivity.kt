@@ -16,6 +16,8 @@ class WelcomeActivity : AppCompatActivity() {
     private lateinit var rbDificil: RadioButton
     private lateinit var btnIdiomas: com.google.android.material.button.MaterialButton
     private lateinit var btnHistoria: com.google.android.material.button.MaterialButton
+    private lateinit var btnInformatica: com.google.android.material.button.MaterialButton
+    private lateinit var btnCulturaSalvadorena: com.google.android.material.button.MaterialButton
     private lateinit var btnComenzar: Button
     private lateinit var btnCerrarSesion: Button
 
@@ -30,19 +32,29 @@ class WelcomeActivity : AppCompatActivity() {
         rbDificil = findViewById(R.id.rbDificil)
         btnIdiomas = findViewById(R.id.btnIdiomas)
         btnHistoria = findViewById(R.id.btnHistoria)
+        btnInformatica = findViewById(R.id.btnInformatica)
+        btnCulturaSalvadorena = findViewById(R.id.btnCulturaSalvadorena)
         btnComenzar = findViewById(R.id.btnComenzar)
         btnCerrarSesion = findViewById(R.id.btnCerrarSesion)
 
         btnIdiomas.setOnClickListener {
             tipoQuizSeleccionado = "Idiomas"
-            btnIdiomas.isSelected = true
-            btnHistoria.isSelected = false
+            seleccionarQuiz(btnIdiomas)
         }
 
         btnHistoria.setOnClickListener {
             tipoQuizSeleccionado = "Historia (Siglo XX)"
-            btnHistoria.isSelected = true
-            btnIdiomas.isSelected = false
+            seleccionarQuiz(btnHistoria)
+        }
+
+        btnInformatica.setOnClickListener {
+            tipoQuizSeleccionado = "Informática"
+            seleccionarQuiz(btnInformatica)
+        }
+
+        btnCulturaSalvadorena.setOnClickListener {
+            tipoQuizSeleccionado = "Cultura general salvadoreña"
+            seleccionarQuiz(btnCulturaSalvadorena)
         }
 
         btnComenzar.setOnClickListener {
@@ -69,6 +81,12 @@ class WelcomeActivity : AppCompatActivity() {
         intent.putExtra("TIPO_QUIZ", tipoQuizSeleccionado)
         intent.putExtra("DIFICULTAD", dificultad)
         startActivity(intent)
+    }
+
+    private fun seleccionarQuiz(button: com.google.android.material.button.MaterialButton) {
+        listOf(btnIdiomas, btnHistoria, btnInformatica, btnCulturaSalvadorena).forEach {
+            it.isSelected = it == button
+        }
     }
 }
 
